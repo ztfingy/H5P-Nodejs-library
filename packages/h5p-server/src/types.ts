@@ -621,6 +621,10 @@ export interface IContentUserData {
      * server then deletes the state when the content is updated.
      */
     invalidate: boolean;
+    /**
+     * Timestamp when the state was saved (UNIX ms). Optional for backward compatibility.
+     */
+    time?: number;
 }
 
 /**
@@ -1659,6 +1663,11 @@ export interface IH5PConfig {
      * off displaying H5P content)
      */
     contentUserDataUrl: string;
+    /**
+     * Storage backend for content user data. 'file' uses filesystem, 'database'
+     * delegates to a custom database implementation.
+     */
+    contentUserDataStorage: 'file' | 'database';
     /**
      * A list of file extensions allowed for content files. Contains file
      * extensions (without .) separated by whitespaces.

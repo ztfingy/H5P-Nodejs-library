@@ -30,6 +30,7 @@ export default class H5PConfig implements IH5PConfig {
     public contentHubEnabled: boolean = false;
     public contentHubMetadataRefreshInterval: number = 1 * 1000 * 60 * 60 * 24;
     public contentUserDataUrl: string = '/contentUserData';
+    public contentUserDataStorage: 'file' | 'database' = 'file';
     public contentWhitelist: string =
         'json png jpg jpeg gif bmp tif tiff eot ttf woff woff2 otf webm mp4 ogg mp3 m4a wav txt pdf rtf doc docx xls xlsx ppt pptx odt ods odp xml csv diff patch swf md textile vtt webvtt gltf glb';
     public coreApiVersion: { major: number; minor: number } = {
@@ -121,6 +122,7 @@ export default class H5PConfig implements IH5PConfig {
         await this.loadSettingFromStorage('contentHubMetadataRefreshInterval');
         await this.loadSettingFromStorage('contentTypeCacheRefreshInterval');
         await this.loadSettingFromStorage('contentUserStateSaveInterval');
+        await this.loadSettingFromStorage('contentUserDataStorage');
         await this.loadSettingFromStorage('contentWhitelist');
         await this.loadSettingFromStorage('customization');
         await this.loadSettingFromStorage('disableFullscreen');
@@ -152,6 +154,7 @@ export default class H5PConfig implements IH5PConfig {
         await this.saveSettingToStorage('contentHubMetadataRefreshInterval');
         await this.saveSettingToStorage('contentTypeCacheRefreshInterval');
         await this.saveSettingToStorage('contentUserStateSaveInterval');
+        await this.saveSettingToStorage('contentUserDataStorage');
         await this.saveSettingToStorage('contentWhitelist');
         await this.saveSettingToStorage('customization');
         await this.saveSettingToStorage('disableFullscreen');
